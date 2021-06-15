@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Random pass generator</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<link rel="stylesheet"type="text/css"href="style.css"/>
+	
+	
+	<script>
+		var keylist = "abcdefghijklmnopqrstuvwxyz12345689:@#%&*/";
+		
+		var temp = '';
+		
+		function generatepass(plength) {
+			temp = '';
+			
+			for (i=0; i < plength; i++) {
+				temp += keylist.charAt(Math.floor(Math.random()*keylist.length))
+			}
+			
+			return temp;
+		}
+		
+		function populateform(enterlength) {
+			document.passGen.output.value = generatepass(enterlength)
+		}
+		
+		
+		
+		
+	</script>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</head>
+<body>
+	<div class="container">
+		<form action=""name="passGen">
+			<div class="col-xs-12">
+				<input type="text"name="output"class="out"disabled>
+				
+				<input type="button"value="Generator Password"class="btn btn-success btn-block mybtn"
+				onclick="populateform(this.form.length.value)">
+				
+	<div class="col-x8-10">
+		<strong class="pass">Password length :</strong>
+	</div>
+				
+			
+			<div class="col-x8-12">
+				<input type="text"name="length"size="3"value="6"class="in">
+			</div>
+		</form>
+	</div>
+</body>
+</html>
